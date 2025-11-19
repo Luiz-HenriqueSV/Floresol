@@ -1,179 +1,213 @@
-create database if not exists bank_adm;
-use bank_adm;
+CREATE DATABASE IF NOT EXISTS bank_adm;
+USE bank_adm;
 
-create table Cliente (
-    id_cliente int primary key auto_increment,
-    nome_cliente varchar(100) not null,
-    email_cliente varchar(60),
-    cpf_cliente char(11) not null,
-    idade_cliente int not null,
-    datanas_cliente date not null,
-    constraint ch_cliente unique(cpf_cliente),
-    constraint ch_cliente2 unique(email_cliente)
-);
 
-create table Loja(
-    id_loja int primary key,
-    cnpj_loja char(14) not null,
-    email_loja varchar(100),
-    nome varchar(60) not null
-);
+CREATE TABLE Cliente (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome_cliente VARCHAR(100) NOT NULL,
+    email_cliente VARCHAR(60) UNIQUE,
+    cpf_cliente CHAR(11) NOT NULL UNIQUE,
+    idade_cliente INT NOT NULL,
+    datanas_cliente DATE NOT NULL
+) ;
 
-create table FormaPagamento(
-    id_formapagamento int primary key,
-    tipo varchar(18) not null,
-    parcela int
-);
+CREATE TABLE Loja (
+    id_loja INT PRIMARY KEY AUTO_INCREMENT,
+    cnpj_loja CHAR(14) NOT NULL UNIQUE,
+    email_loja VARCHAR(100),
+    nome VARCHAR(60) NOT NULL
+) ;
 
-create table Delivery(
-    id_delivery int primary key,
-    frete_deliveri decimal(10,2) not null,
-    codrastreio_delivery bigint not null,
-    StTransporte_delivery varchar(15),
-    constraint ch_delivery unique(codrastreio_delivery)
-);
+CREATE TABLE FormaPagamento (
+    id_formapagamento INT PRIMARY KEY AUTO_INCREMENT,
+    tipo VARCHAR(18) NOT NULL,
+    parcela INT
+) ;
 
-create table Personalizado (
-    id_personalizado int primary key,
-    taxa_personalizado decimal(10,2),
-    descricao_personalizado varchar(120)
-);
+CREATE TABLE Delivery (
+    id_delivery INT PRIMARY KEY AUTO_INCREMENT,
+    frete_delivery DECIMAL(10,2) NOT NULL,
+    codrastreio_delivery BIGINT NOT NULL UNIQUE,
+    StTransporte_delivery VARCHAR(15)
+) ;
 
-create table Fornecedor (
-    id_fornecedor int primary key,
-    nome_fornecedor varchar(70) not null,
-    cnpj_fornecedor char(14) not null,
-    site varchar(40),
-    constraint ch_fornecedor unique (cnpj_fornecedor),
-    constraint ch_fornecedor2 unique (nome_fornecedor)
-);
+CREATE TABLE Personalizado (
+    id_personalizado INT PRIMARY KEY AUTO_INCREMENT,
+    taxa_personalizado DECIMAL(10,2),
+    descricao_personalizado VARCHAR(120)
+) ;
 
-create table Endereco(
-    id_endereco int primary key auto_increment,
-    cep char(8),
-    rua varchar(40) not null,
-    numero int not null,
-    bairro varchar(40),
-    cidade varchar(40),
-    sgestado varchar(2)
-);
+CREATE TABLE Fornecedor (
+    id_fornecedor INT PRIMARY KEY AUTO_INCREMENT,
+    nome_fornecedor VARCHAR(70) NOT NULL,
+    cnpj_fornecedor CHAR(14) NOT NULL UNIQUE,
+    site VARCHAR(100)
+) ;
 
-create table Telefone (
-    id_telefone int primary key,
-    numero varchar(14)
-);
+CREATE TABLE Endereco (
+    id_endereco INT PRIMARY KEY AUTO_INCREMENT,
+    cep CHAR(8),
+    rua VARCHAR(40) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(40),
+    cidade VARCHAR(40),
+    sgestado CHAR(2)
+) ;
 
-create table Funcionario(
-    id_funcionario int primary key,
-    nome_funcionario varchar(150) not null,
-    idade_funcionario int not null,
-    cpf_funcionario char(11) not null,
-    rg_funcionario char(11) not null,
-    datanas_funcionario date not null,
-    email_funcionario varchar(100),
-    cargo_funcionario varchar(20) not null,
-    sexo_funcionario varchar(1) not null,
-    salario_funcionario decimal(10,2) not null default 1518,
-    id_loja int,
-    foreign key (id_loja) references Loja(id_loja),
-    constraint ch_funcionario unique (rg_funcionario),
-    constraint ch_funcionario2 unique (cpf_funcionario),
-    constraint ch_funcionario3 unique (email_funcionario),
-    constraint ch_funcionario4 check (sexo_funcionario in('f','m')),
-    constraint ch_funcionario5 check (salario_funcionario > 0)
-);
+CREATE TABLE Telefone (
+    id_telefone INT PRIMARY KEY AUTO_INCREMENT,
+    numero VARCHAR(20) NOT NULL  
+) ;
 
-create table Produto (
-    id_produto int primary key,
-    tipo_produto varchar(20) not null,
-    nome_produto varchar(40) not null,
-    preco_produto decimal(10,2) not null,
-    quantidade_produto int not null,
-    tamanho_produto decimal(4,2),
-    id_fornecedor int,
-    foreign key (id_fornecedor) references Fornecedor(id_fornecedor)
-);
+CREATE TABLE Funcionario (
+    id_funcionario INT PRIMARY KEY AUTO_INCREMENT,
+    nome_funcionario VARCHAR(150) NOT NULL,
+    idade_funcionario INT NOT NULL,
+    cpf_funcionario CHAR(11) NOT NULL UNIQUE,
+    rg_funcionario CHAR(20) NOT NULL UNIQUE,
+    datanas_funcionario DATE NOT NULL,
+    email_funcionario VARCHAR(100) UNIQUE,
+    cargo_funcionario VARCHAR(30) NOT NULL,
+    sexo_funcionario CHAR(1) NOT NULL,
+    salario_funcionario DECIMAL(10,2) NOT NULL DEFAULT 1518.00,
+    id_loja INT,
+    CONSTRAINT ch_funcionario_sexo CHECK (sexo_funcionario IN ('f','m')),
+    CONSTRAINT ch_funcionario_salario CHECK (salario_funcionario > 0),
+    FOREIGN KEY (id_loja) REFERENCES Loja(id_loja) 
+) ;
 
-create table Pedido (
-    id_pedido int primary key,
-    valor decimal(10,2) not null,
-    data_transacao date not null,
-    hora_transacao time not null,
-    id_cliente int,
-    id_loja int,
-    id_formapagamento int,
-    id_delivery int,
-    id_personalizado int,
-    foreign key (id_cliente) references Cliente(id_cliente),
-    foreign key (id_loja) references Loja(id_loja),
-    foreign key (id_formapagamento) references FormaPagamento(id_formapagamento),
-    foreign key (id_delivery) references Delivery(id_delivery),
-    foreign key (id_personalizado) references Personalizado(id_personalizado)
+CREATE TABLE Produto (
+    id_produto INT PRIMARY KEY AUTO_INCREMENT,
+    tipo_produto VARCHAR(40) NOT NULL,
+    nome_produto VARCHAR(80) NOT NULL,
+    descricao_produto VARCHAR(200),
+    preco_produto DECIMAL(10,2) NOT NULL,
+    quantidade_produto INT NOT NULL,
+    tamanho_produto DECIMAL(6,2),
+    id_fornecedor INT,
+    FOREIGN KEY (id_fornecedor) REFERENCES Fornecedor(id_fornecedor) 
+) ;
+
+CREATE TABLE Login(
+
+id_login int primary key auto_increment,
+id_funcionario int unique,
+Usuario varchar(100) not null unique,
+Senha varchar(50) not null,
+FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_funcionario) 
 );
 
 
 
-create table Cliente_has_Endereco (
-    id_cliente int,
-    id_endereco int,
-    primary key (id_cliente, id_endereco),
-    foreign key (id_cliente) references Cliente(id_cliente),
-    foreign key (id_endereco) references Endereco(id_endereco)
-);
+CREATE TABLE Pedido (
+    id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+    valor DECIMAL(10,2) NOT NULL,
+    data_transacao datetime NOT NULL,
+    hora_transacao TIME NOT NULL,
+    id_cliente INT,
+    id_loja INT,
+    id_formapagamento INT,
+    id_delivery INT,
+    id_personalizado INT,
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente) ,
+    FOREIGN KEY (id_loja) REFERENCES Loja(id_loja) ,
+    FOREIGN KEY (id_formapagamento) REFERENCES FormaPagamento(id_formapagamento) ,
+    FOREIGN KEY (id_delivery) REFERENCES Delivery(id_delivery) ,
+    FOREIGN KEY (id_personalizado) REFERENCES Personalizado(id_personalizado) 
+) ;
 
-create table Loja_has_Endereco (
-    id_loja int,
-    id_endereco int,
-    primary key (id_loja, id_endereco),
-    foreign key (id_loja) references Loja(id_loja),
-    foreign key (id_endereco) references Endereco(id_endereco)
-);
 
-create table Endereco_has_Funcionarios (
-    id_endereco int,
-    id_funcionario int,
-    primary key (id_endereco, id_funcionario),
-    foreign key (id_endereco) references Endereco(id_endereco),
-    foreign key (id_funcionario) references Funcionario(id_funcionario)
-);
+CREATE TABLE Cliente_has_Endereco (
+    id_cliente INT,
+    id_endereco INT,
+    PRIMARY KEY (id_cliente, id_endereco),
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente) ,
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco) 
+) ;
 
-create table Endereco_has_Fornecedor (
-    id_endereco int,
-    id_fornecedor int,
-    primary key (id_endereco, id_fornecedor),
-    foreign key (id_endereco) references Endereco(id_endereco),
-    foreign key (id_fornecedor) references Fornecedor(id_fornecedor)
-);
+CREATE TABLE Loja_has_Endereco (
+    id_loja INT,
+    id_endereco INT,
+    PRIMARY KEY (id_loja, id_endereco),
+    FOREIGN KEY (id_loja) REFERENCES Loja(id_loja) ,
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco) 
+) ;
 
-create table Telefone_has_Cliente (
-    id_telefone int,
-    id_cliente int,
-    primary key (id_telefone, id_cliente),
-    foreign key (id_telefone) references Telefone(id_telefone),
-    foreign key (id_cliente) references Cliente(id_cliente)
-);
+CREATE TABLE Endereco_has_Funcionarios (
+    id_endereco INT,
+    id_funcionario INT,
+    PRIMARY KEY (id_endereco, id_funcionario),
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco) ,
+    FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_funcionario)
+) ;
 
-create table Telefone_has_Funcionarios (
-    id_telefone int,
-    id_funcionario int,
-    primary key (id_telefone, id_funcionario),
-    foreign key (id_telefone) references Telefone(id_telefone),
-    foreign key (id_funcionario) references Funcionario(id_funcionario)
-);
+CREATE TABLE Endereco_has_Fornecedor (
+    id_endereco INT,
+    id_fornecedor INT,
+    PRIMARY KEY (id_endereco, id_fornecedor),
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco) ,
+    FOREIGN KEY (id_fornecedor) REFERENCES Fornecedor(id_fornecedor) 
+) ;
 
-create table Telefone_has_Fornecedor (
-    id_telefone int,
-    id_fornecedor int,
-    primary key (id_telefone, id_fornecedor),
-    foreign key (id_telefone) references Telefone(id_telefone),
-    foreign key (id_fornecedor) references Fornecedor(id_fornecedor)
-);
+CREATE TABLE Telefone_has_Cliente (
+    id_telefone INT,
+    id_cliente INT,
+    PRIMARY KEY (id_telefone, id_cliente),
+    FOREIGN KEY (id_telefone) REFERENCES Telefone(id_telefone) ,
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente) 
+) ;
 
-create table Pedido_has_Produto (
-    id_pedido int,
-    id_produto int,
-    quantidade int not null,
-    primary key (id_pedido, id_produto),
-    foreign key (id_pedido) references Pedido(id_pedido),
-    foreign key (id_produto) references Produto(id_produto)
-);
+CREATE TABLE Telefone_has_Funcionarios (
+    id_telefone INT,
+    id_funcionario INT,
+    PRIMARY KEY (id_telefone, id_funcionario),
+    FOREIGN KEY (id_telefone) REFERENCES Telefone(id_telefone) ,
+    FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_funcionario) 
+) ;
+
+CREATE TABLE Telefone_has_Fornecedor (
+    id_telefone INT,
+    id_fornecedor INT,
+    PRIMARY KEY (id_telefone, id_fornecedor),
+    FOREIGN KEY (id_telefone) REFERENCES Telefone(id_telefone) ,
+    FOREIGN KEY (id_fornecedor) REFERENCES Fornecedor(id_fornecedor) 
+) ;
+
+CREATE TABLE Pedido_has_Produto (
+    id_pedido INT,
+    id_produto INT,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (id_pedido, id_produto),
+    FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido) ,
+    FOREIGN KEY (id_produto) REFERENCES Produto(id_produto) 
+) ;
+
+INSERT INTO Loja (cnpj_loja, email_loja, nome)
+VALUES ('12345678000199', 'aliahcristina2017@gmail.com', 'Floricultura Floresol');
+
+
+INSERT INTO Funcionario 
+(nome_funcionario, idade_funcionario, cpf_funcionario, rg_funcionario, datanas_funcionario, 
+ email_funcionario, cargo_funcionario, sexo_funcionario, salario_funcionario, id_loja)
+VALUES
+('Alana Barbosa do Patrocinio', 
+ 17, '11122233345', '45.123.456-7', '2008-04-07',
+ 'alana.patrocinio@gmail.com', 'Caixa', 'f', 1518.00, 1),
+
+('Aliah Cristina Lourenço dos Reis', 
+ 17, '22233344456', '44.987.654-3', '2007-10-28',
+ 'aliah.reis@gmail.com', 'Marketing', 'f', 1518.00, 1),
+
+('Amanda Aguiar Alves da Silva', 
+ 17, '33344455567', '42.567.890-1', '2007-12-23',
+ 'amanda.alves@gmail.com', 'Florista', 'f', 1518.00, 1),
+
+('Guilhermina Souza Santana', 
+ 16, '44455566678', '48.456.321-9', '2008-05-12',
+ 'guilhermina.santana@gmail.com', 'Limpeza', 'f', 1518.00, 1),
+
+('Maria Eduarda de Moura Alves', 
+ 17, '55566677789', '52.789.654-0', '2008-02-27',
+ 'maria.eduarda@gmail.com', 'Contabilidade e Finanças', 'f', 1518.00, 1);
+ 
+ select*from Funcionario
