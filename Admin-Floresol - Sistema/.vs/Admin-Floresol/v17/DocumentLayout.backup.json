@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\LG\\Desktop\\Atividades ETEC\\Atividade_de_DS\\Projeto\\Admin-Floresol\\",
+  "WorkspaceRootPath": "C:\\Users\\LG\\Desktop\\Atividades ETEC\\Atividade_de_DS\\Projeto\\Admin-Floresol - Sistema\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{686F13AA-0B97-45E7-A223-22CD68612E7D}|Admin-Floresol\\Admin-Floresol.csproj|c:\\users\\lg\\desktop\\atividades etec\\atividade_de_ds\\projeto\\admin-floresol\\admin-floresol\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{686F13AA-0B97-45E7-A223-22CD68612E7D}|Admin-Floresol\\Admin-Floresol.csproj|c:\\users\\lg\\desktop\\atividades etec\\atividade_de_ds\\projeto\\admin-floresol - sistema\\admin-floresol\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{686F13AA-0B97-45E7-A223-22CD68612E7D}|Admin-Floresol\\Admin-Floresol.csproj|solutionrelative:admin-floresol\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\LG\\Desktop\\Atividades ETEC\\Atividade_de_DS\\Projeto\\Admin-Floresol\\Admin-Floresol\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\LG\\Desktop\\Atividades ETEC\\Atividade_de_DS\\Projeto\\Admin-Floresol - Sistema\\Admin-Floresol\\Program.cs",
               "RelativeDocumentMoniker": "Admin-Floresol\\Program.cs",
-              "ToolTip": "C:\\Users\\LG\\Desktop\\Atividades ETEC\\Atividade_de_DS\\Projeto\\Admin-Floresol\\Admin-Floresol\\Program.cs",
-              "RelativeToolTip": "Admin-Floresol\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\LG\\Desktop\\Atividades ETEC\\Atividade_de_DS\\Projeto\\Admin-Floresol - Sistema\\Admin-Floresol\\Program.cs*",
+              "RelativeToolTip": "Admin-Floresol\\Program.cs*",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T19:19:50.141Z",
               "EditorCaption": ""
