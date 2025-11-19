@@ -69,7 +69,7 @@ CREATE TABLE Funcionario (
     email_funcionario VARCHAR(100) UNIQUE,
     cargo_funcionario VARCHAR(30) NOT NULL,
     sexo_funcionario CHAR(1) NOT NULL,
-    salario_funcionario DECIMAL(10,2) NOT NULL DEFAULT 4.000,00,
+    salario_funcionario DECIMAL(10,2) NOT NULL DEFAULT 1518,00,
     id_loja INT,
     CONSTRAINT ch_funcionario_sexo CHECK (sexo_funcionario IN ('f','m')),
     CONSTRAINT ch_funcionario_salario CHECK (salario_funcionario > 0),
@@ -192,22 +192,22 @@ INSERT INTO Funcionario
 VALUES
 ('Alana Barbosa do Patrocinio', 
  17, '11122233345', '45.123.456-7', '2008-04-07',
- 'alana.patrocinio@gmail.com', 'Caixa', 'f', 4000,00, 1),
+ 'alana.patrocinio@gmail.com', 'Caixa', 'f', 1518,00, 1),
 
 ('Aliah Cristina Lourenço dos Reis', 
  17, '22233344456', '44.987.654-3', '2007-10-28',
- 'aliah.reis@gmail.com', 'Marketing', 'f', 4000,00, 1),
+ 'aliah.reis@gmail.com', 'Marketing', 'f', 1518,00, 1),
 
 ('Amanda Aguiar Alves da Silva', 
  17, '33344455567', '42.567.890-1', '2007-12-23',
- 'amanda.alves@gmail.com', 'Florista', 'f', 4000,00, 1),
+ 'amanda.alves@gmail.com', 'Florista', 'f', 1518,00, 1),
 
 ('Guilhermina Souza Santana', 
  16, '44455566678', '48.456.321-9', '2008-05-12',
- 'guilhermina.santana@gmail.com', 'Limpeza', 'f', 4000,00, 1),
+ 'guilhermina.santana@gmail.com', 'Limpeza', 'f', 1518,00, 1),
 
 ('Maria Eduarda de Moura Alves', 
  17, '55566677789', '52.789.654-0', '2008-02-27',
- 'maria.eduarda@gmail.com', 'Contabilidade e Finanças', 'f', 4000,00, 1);
+ 'maria.eduarda@gmail.com', 'Contabilidade e Finanças', 'f', 1518,00, 1);
  
  select*from Funcionario
