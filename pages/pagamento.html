@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - Florence</title>
+<link rel="stylesheet" href="Styles/style.css">  
+    <link rel="icon" type="image/x-icon" href="../Imagens/LOGO .png"> 
+    <style>
+        /* ESTILOS ESPECÍFICOS DO PAGAMENTO (Mover para style.css) */
+
+        .checkout-container {
+            padding: 40px 0;
+            background-color: #f7f7f7;
+            min-height: 70vh;
+        }
+
+        .checkout-container h1 {
+            color: var(--color-dark-green);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Layout em Grid: Métodos de Pagamento (2/3) + Resumo Final (1/3) */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr; 
+            gap: 30px;
+            align-items: start;
+        }
+
+        .payment-methods, .order-summary-final {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Seção de Métodos de Pagamento */
+        .payment-methods h2 {
+            color: var(--color-primary-burgundy);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .payment-option:hover, .payment-option.selected {
+            border-color: var(--color-dark-green);
+            box-shadow: 0 0 5px rgba(28, 77, 65, 0.1); /* Sombra suave da cor verde */
+        }
+        
+        .payment-option label {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        /* Formulário de Cartão (Simulação) */
+        .card-form {
+            margin-top: 15px;
+            padding: 15px 0;
+            border-top: 1px dashed #eee;
+        }
+        .form-group-checkout {
+            margin-bottom: 15px;
+        }
+        .form-group-checkout label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .form-group-checkout input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Resumo Final */
+        .order-summary-final h3 {
+            color: var(--color-dark-green);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-primary-burgundy);
+            margin-bottom: 20px;
+        }
+
+        .summary-block {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .summary-block p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 5px 0;
+        }
+
+        .summary-line-final {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .total-line-final {
+            padding-top: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--color-primary-burgundy);
+            border-top: 1px solid #ccc;
+        }
+
+        .final-purchase-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-dark-green); 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .final-purchase-button:hover {
+            background-color: #1a4a3e; 
+        }
+
+        /* Adaptação para telas menores */
+        @media (max-width: 900px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar top-bar-dark">
+            <div class="container top-container">
+                <div class="logo logo-large">
+                    <img src="../Imagens/LOGO .png" alt="Logotipo Floresol">
+                    <h1>FLORENCE</h1>
+                </div>
+
+                <div class="contact-info contact-info-light">
+                    <p>(11) 98999-3538</p>
+                    <p>Rua das Turmalinas, 81 - Diadema</p>
+                    <a href="#">Ajuda/FAQ</a>
+                </div>
+
+                <div class="search-bar search-bar-light">
+                    <input type="text" placeholder="O que você está buscando?">
+                </div>
+                
+                <div class="user-actions user-actions-light">
+                    <a href="login.html" class="login-link">👤 Login</a> 
+                    <a href="carrinho.html" class="cart-link">🛒 Carrinho (<span id="cart-count">0</span>)</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav main-nav-dark">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="flores.html">Flores</a></li>
+                    <li><a href="folhagens.html">Plantas</a></li>
+                    <li><a href="#">Mais Vendidas</a></li>
+                    <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <div class="container">
+            <h1>Finalizar Compra: Selecione o Pagamento</h1>
+
+            <div class="checkout-grid">
+                
+                <div class="payment-methods">
+                    <h2>Métodos de Pagamento</h2>
+
+                    <div class="payment-option selected" data-method="credit-card">
+                        <label>
+                            <input type="radio" name="payment-method" value="credit-card" checked>
+                            💳 Cartão de Crédito/Débito
+                        </label>
+                        
+                        <form class="card-form">
+                            <div class="form-group-checkout">
+                                <label for="card-number">Número do Cartão</label>
+                                <input type="text" id="card-number" placeholder="0000 0000 0000 0000" required>
+                            </div>
+                            <div class="form-group-checkout">
+                                <label for="card-name">Nome Impresso no Cartão</label>
+                                <input type="text" id="card-name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group-checkout">
+                                    <label for="expiry-date">Validade (MM/AA)</label>
+                                    <input type="text" id="expiry-date" placeholder="MM/AA" required>
+                                </div>
+                                <div class="form-group-checkout">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="payment-option" data-method="pix">
+                        <label>
+                            <input type="radio" name="payment-method" value="pix">
+                            ✨ Pix (Pagamento Instantâneo)
+                        </label>
+                    </div>
+                    
+                    <div class="payment-option" data-method="boleto">
+                        <label>
+                            <input type="radio" name="payment-method" value="boleto">
+                            📄 Boleto Bancário
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="order-summary-final">
+                    <h3>Resumo do Pedido</h3>
+                    
+                    <div class="summary-block">
+                        <strong>Endereço de Entrega</strong>
+                        <p>Rua das Flores, 123 - Apt 4B</p>
+                        <p>Jardim Botânico - 04000-000</p>
+                        <p>São Paulo, SP</p>
+                        <a href="carrinho.html" style="font-size: 0.9rem; color: var(--color-primary-burgundy); text-decoration: none;">(Alterar endereço)</a>
+                    </div>
+                    
+                    <div class="summary-block">
+                        <strong>Itens (2)</strong>
+                        <p>Orquídea Phalaenopsis Branca (x1)</p>
+                        <p>Mini Cacto Decorativo (x2)</p>
+                    </div>
+                    
+                    <div class="summary-line-final">
+                        <span>Subtotal:</span>
+                        <span>R$ 220,00</span>
+                    </div>
+                    
+                    <div class="summary-line-final">
+                        <span>Frete:</span>
+                        <span>R$ 20,00</span>
+                    </div>
+                    
+                    <div class="total-line-final">
+                        <span>Total a Pagar:</span>
+                        <span class="total-price">R$ 240,00</span>
+                    </div>
+                    
+                    <button class="final-purchase-button">
+                        Pagar R$ 240,00 </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-column atendimento">
+                <h4>Atendimento</h4>
+                <p><a href="#">FAQ / Ajuda</a></p>
+            </div>
+            <div class="footer-column sobre-nos">
+                <h4>A Floresol</h4>
+                <p><a href="sobre-nos.html">Sobre Nós</a></p>
+            </div>
+            <div class="footer-column contato">
+                <h4>Contato</h4>
+                <p class="phone-number">📞 (11) 98999-3538</p> 
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Receba Novidades</h4>
+                <form>
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Cadastrar</button> 
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright-bar">
+             <p>© 2025 Florence / Floresol. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="../Scripts/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.payment-option');
+            const cardForm = document.querySelector('.card-form');
+            const finalButton = document.querySelector('.final-purchase-button');
+            const totalPriceSpan = document.querySelector('.total-price'); // 1. Elemento que contém o valor
+
+            // --- CORREÇÃO DE VALOR: GARANTIR CONSISTÊNCIA ---
+            // Lê o valor da span e atualiza o texto do botão
+            const finalAmount = totalPriceSpan ? totalPriceSpan.textContent.trim() : 'R$ 0,00';
+            finalButton.textContent = `Pagar ${finalAmount}`; // O botão agora pega o valor do resumo.
+
+            // --- Lógica de Seleção de Opções de Pagamento ---
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    options.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    const method = this.dataset.method;
+
+                    // Mostra/Oculta o formulário do cartão
+                    if (method === 'credit-card') {
+                        cardForm.style.display = 'block';
+                    } else {
+                        cardForm.style.display = 'none';
+                    }
+                });
+            });
+
+            // --- Lógica do Botão Finalizar Compra (Simulação) ---
+            finalButton.addEventListener('click', function() {
+                const selectedMethod = document.querySelector('.payment-option.selected').dataset.method;
+                
+                alert(`Confirmação: Pagamento de ${finalAmount} selecionado via ${selectedMethod.toUpperCase()}. O pedido será finalizado. (Simulação)`);
+                
+                // Em um projeto real, aqui você faria o envio final dos dados para o servidor.
+                // window.location.href = 'confirmacao.html'; 
+            });
+        });
+    </script>
+</body>
+</html>

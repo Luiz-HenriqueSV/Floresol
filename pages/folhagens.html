@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folhagens - Florence</title>
+   <link rel="stylesheet" href="../Styles/style.css"> 
+    <link rel="icon" type="image/x-icon" href="Imagens/LOGO .png"> 
+</head>
+<body>
+    <header>
+        <div class="top-bar top-bar-dark">
+            <div class="container top-container">
+                <div class="logo logo-large">
+                    <img src="Imagens/LOGO .png" alt="Logotipo Floresol">
+                    <h1>FLORENCE</h1>
+                </div>
+
+                <div class="contact-info contact-info-light">
+                    <p>(11) 98999-3538</p>
+                    <p>Rua das Turmalinas, 81 - Diadema</p>
+                    <a href="#">Ajuda/FAQ</a>
+                </div>
+
+                <div class="search-bar search-bar-light">
+                    <input type="text" placeholder="O que você está buscando?">
+                </div>
+                
+                <div class="user-actions user-actions-light">
+                    <a href="login.html" class="login-link">👤 Login</a> 
+                       <a href="carrinho.html" class="cart-link" id="cart-icon">🛒 Carrinho (0)</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav main-nav-dark">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="flores.html">Flores</a></li>
+                    <li class="active"><a href="folhagens.html">Plantas</a></li>
+                    <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Nossas Plantas </h1>
+        
+        <section class="gallery">
+            
+            
+            <div class="product-card" data-id="flor002" data-name="Orquídea Phalaenopsis Branca" data-price="8,00">
+                <img src="Imagens/Aloe Vera.png" alt="Aloe Vera">
+                <div class="card-info">
+                    <h4>Aloe Vera uma unidade</h4>
+                    <span class="price" data-price="8,00">R$ 8,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="flor003" data-name="Girassol Radiante" data-price="8.00">
+                <img src="Imagens/Babosa.png" alt="Babosa">
+                <div class="card-info">
+                    <h4>Babosa uma unidade</h4>
+                    <span class="price" data-price="8,00">R$ 8,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor004" data-name="Lírio Amarelo" data-price="4.00">
+                <img src="Imagens/Cactos-01.png" alt="Cactos">
+                <div class="card-info">
+                    <h4>Lírio Cactos uma unidade</h4>
+                    <span class="price" data-price="4.00">R$ 4,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor005" data-name="Margarida Branca" data-price="7.50">
+                <img src="Imagens/Begônias Rex roxa.png" alt="Begônias Rex">
+                <div class="card-info">
+                    <h4>Begônias Rex uma unidade</h4>
+                    <span class="price" data-price="7.50">R$ 7,50</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-column atendimento">
+                <h4>Atendimento</h4>
+                <p><a href="#">FAQ / Ajuda</a></p>
+            </div>
+            <div class="footer-column sobre-nos">
+                <h4>A Floresol</h4>
+                <p><a href="sobre-nos.html">Sobre Nós</a></p>
+            </div>
+            <div class="footer-column contato">
+                <h4>Contato</h4>
+                <p class="phone-number">📞 (11) 98999-3538</p> 
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Receba Novidades</h4>
+                <form>
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Cadastrar</button> 
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright-bar">
+             <p>© 2025 Florence / Floresol. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-details">
+                <h2 id="modalTitle"></h2>
+                <span class="modal-price" id="modalPrice"></span>
+                <h3>Descrição</h3>
+                <p id="modalDescription"></p>
+                <h3>Informações e Cuidados</h3>
+                <p id="modalCare"></p>
+                <a href="#" class="button-aproveite" style="margin-top: 20px; text-align: center;">Comprar Agora</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description, price, imageSrc, careInfo) {
+            const modal = document.getElementById('productModal');
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalPrice').innerText = price;
+            // O caminho é construído aqui
+            document.getElementById('modalImage').src = "../Imagens/" + imageSrc;
+            document.getElementById('modalImage').alt = title;
+            document.getElementById('modalCare').innerText = careInfo;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

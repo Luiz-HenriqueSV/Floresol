@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Carrinho de Compras - Floresol</title>
+    <link rel="stylesheet" href="//style.css"> 
+    <link rel="icon" type="image/x-icon" href="Imagens/LOGO .png"> 
+</head>
+<body>
+    <header>
+        </header>
+
+    <main class="container">
+        <h1>Seu Carrinho de Compras</h1>
+
+        <section class="cart-content">
+            <div class="cart-items-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-table-body">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="cart-summary">
+                <h3>Resumo do Pedido</h3>
+                <div class="summary-details">
+                    <p>Subtotal dos Produtos: <span id="summary-subtotal">R$ 0,00</span></p>
+                    <p>Frete: <span id="summary-frete">R$ 0,00</span></p>
+                    <hr>
+                    <h4>Total a Pagar: <span id="summary-total">R$ 0,00</span></h4>
+                </div>
+                <button class="button-aproveite">Finalizar Compra</button>
+                <button class="button-secondary">Continuar Comprando</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        </footer>
+    
+    <script src="../Scripts/cart.js"></script>
+
+    <style>
+    
+.cart-content {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    padding-bottom: 50px; 
+}
+
+
+.cart-items-container {
+    flex-grow: 1;
+    overflow-x: auto; 
+}
+
+table {
+    width: 100%;
+    min-width: 550px; 
+    border-collapse: collapse;
+}
+
+thead tr {
+    background-color: var(--color-light-gray);
+    color: var(--color-dark-green);
+    border-top: 2px solid var(--color-primary-burgundy);
+    border-bottom: 2px solid var(--color-primary-burgundy);
+}
+
+th, td {
+    text-align: left;
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    font-size: 0.95rem;
+}
+
+td:nth-child(3), 
+td:nth-child(4) {
+    font-weight: bold;
+}
+
+
+.cart-summary {
+    width: 300px;
+    min-width: 250px;
+    padding: 25px;
+    background-color: var(--color-light-gray);
+    border: 1px solid var(--color-primary-burgundy);
+    border-radius: 8px;
+    height: fit-content; /* Ajusta a altura ao conteúdo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h3 {
+    font-size: 1.4rem;
+    color: var(--color-dark-green);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-secondary-mauve);
+    padding-bottom: 10px;
+}
+
+.summary-details {
+    margin-bottom: 20px;
+    line-height: 2.2;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+}
+
+.summary-details hr {
+    border: 0;
+    border-top: 1px dashed var(--color-secondary-mauve);
+    margin: 10px 0;
+}
+
+.summary-details h4 {
+    font-size: 1.3rem;
+    color: var(--color-primary-burgundy);
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-details span {
+    font-weight: bold;
+}
+
+
+.button-secondary {
+    
+    background-color: var(--color-white);
+    color: var(--color-primary-burgundy);
+    border: 1px solid var(--color-primary-burgundy);
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-secondary:hover {
+    background-color: var(--color-secondary-mauve);
+    color: var(--color-white);
+    border-color: var(--color-secondary-mauve);
+}
+
+
+@media (max-width: 850px) {
+    .cart-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center; 
+    }
+
+    .cart-items-container {
+        width: 100%;
+    }
+
+    
+    .cart-summary {
+        width: 90%;
+        max-width: 450px;
+    }
+}
+         
+    </style>
+</body>
+</html>

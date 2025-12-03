@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Florence</title>
+    <link rel="stylesheet" href="../Styles/style.css"> 
+    <link rel="icon" type="image/x-icon" href="Imagens/LOGO .png"> 
+    <style>
+        /* ESTILOS ESPECÍFICOS DO LOGIN (Sugiro mover para style.css) */
+
+        /* Centraliza o formulário na página */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh; /* Altura mínima para centralizar bem */
+            background-color: #f7f7f7; /* Fundo claro para contraste */
+            padding: 40px 0;
+        }
+
+        /* Card do Formulário */
+        .login-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-card h2 {
+            color: var(--color-dark-green);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        /* Estilo dos Campos de Input */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; 
+            font-size: 1rem;
+        }
+
+        /* Botão de Login (usa a cor #572f41) */
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-primary-burgundy); 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #4b2633; 
+        }
+        
+        .register-link {
+            margin-top: 20px;
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        .register-link a {
+            color: var(--color-dark-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar top-bar-dark">
+            <div class="container top-container">
+                <div class="logo logo-large">
+                    <img src="Imagens/LOGO .png" alt="Logotipo Floresol">
+                    <h1>FLORENCE</h1>
+                </div>
+
+                <div class="contact-info contact-info-light">
+                    <p>(11) 98999-3538</p>
+                    <p>Rua das Turmalinas, 81 - Diadema</p>
+                    <a href="#">Ajuda/FAQ</a>
+                </div>
+
+                <div class="search-bar search-bar-light">
+                    <input type="text" placeholder="O que você está buscando?">
+                </div>
+                
+                <div class="user-actions user-actions-light">
+                    <a href="#" class="cart-link">🛒 Carrinho (<span id="cart-count">0</span>)</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav main-nav-dark">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="flores.html">plantas</a></li>
+                    <li><a href="folhagens.html">Plantas</a></l>
+                    <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <div class="login-card">
+            <h2>Acesse sua conta Florence</h2>
+            <form action="#" method="POST"> 
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                </div>
+                
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+            
+            <a href="cadastro.html" class="register-link">Ainda não tem conta? **Cadastre-se aqui**</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-column atendimento">
+                <h4>Atendimento</h4>
+                <p><a href="#">FAQ / Ajuda</a></p>
+            </div>
+            <div class="footer-column sobre-nos">
+                <h4>A Floresol</h4>
+                <p><a href="sobre-nos.html">Sobre Nós</a></p>
+            </div>
+            <div class="footer-column contato">
+                <h4>Contato</h4>
+                <p class="phone-number">📞 (11) 98999-3538</p> 
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Receba Novidades</h4>
+                <form>
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Cadastrar</button> 
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright-bar">
+             <p>© 2025 Florence / Floresol. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="../Scripts/cart.js"></script>
+</body>
+</html>

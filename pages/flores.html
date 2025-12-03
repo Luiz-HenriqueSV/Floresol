@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores - Florence</title>
+    <link rel="stylesheet" href="../Styles/style.css"> 
+    <link rel="icon" type="image/x-icon" href="Imagens/LOGO .png"> 
+    <style>
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar top-bar-dark">
+            <div class="container top-container">
+                <div class="logo logo-large">
+                    <img src="Imagens/LOGO .png" alt="Logotipo Floresol">
+                    <h1>Floresol</h1>
+                </div>
+                <div class="contact-info contact-info-light">
+                    <p>(11) 98999-3538</p>
+                    <p>Rua das Turmalinas, 81 - Diadema</p>
+                    <a href="#">Ajuda/FAQ</a>
+                </div>
+                <div class="search-bar search-bar-light">
+                    <input type="text" placeholder="O que você está buscando?">
+                </div>
+                <div class="user-actions user-actions-light">
+                    <a href="login.html" class="login-link">👤 Login</a> 
+                    <a href="carrinho.html" class="cart-link" id="cart-icon">🛒 Carrinho (0)</a>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav main-nav-dark">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="flores.html">Flores</a></li>
+                    <li><a href="folhagens.html">Folhagens</a></li>
+                    <li><a href="sobre-nos.html">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Nossas Flores </h1>
+        
+        <section class="gallery">
+            <div class="product-card" data-id="flor001" data-name="Rosa Vermelha Clássica" data-price="3.50">
+                <img src="Imagens/Rosas vermelha.png" alt="Rosa Vermelha">
+                <div class="card-info">
+                    <h4>Rosa Vermelha Clássica uma unidade</h4>
+                    <span class="price" data-price="3.50">R$ 3,50</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor002" data-name="Orquídea Phalaenopsis Branca" data-price="15,00">
+                <img src="Imagens/Orquídeas branca.png" alt="Orquídea Phalaenopsis">
+                <div class="card-info">
+                    <h4>Orquídea Phalaenopsis Branca uma unidade</h4>
+                    <span class="price" data-price="15,00">R$ 15,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="flor003" data-name="Girassol Radiante" data-price="4.00">
+                <img src="Imagens/Girassol.png" alt="Girassol">
+                <div class="card-info">
+                    <h4>Girassol Radiante uma unidade</h4>
+                    <span class="price" data-price="4,00">R$ 4,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor004" data-name="Lírio Amarelo" data-price="5.00">
+                <img src="Imagens/Lirios.png" alt="Lírio Amarelo">
+                <div class="card-info">
+                    <h4>Lírio Amarelo uma unidade</h4>
+                    <span class="price" data-price="5.00">R$ 5,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor005" data-name="Margarida Branca" data-price="2.50">
+                <img src="Imagens/Margaridas.png" alt="Margarida Branca">
+                <div class="card-info">
+                    <h4>Margarida Branca uma unidade</h4>
+                    <span class="price" data-price="2.50">R$ 2,50</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor006" data-name="Tulipa Roxa" data-price="6.00">
+                <img src="Imagens/Tulipas azul.png" alt="Tulipa azul">
+                <div class="card-info">
+                    <h4>Tulipa Roxa uma unidade</h4>
+                    <span class="price" data-price="6.00">R$ 6,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor007" data-name="Bonsai de Azaleia" data-price="4.00">
+                <img src="Imagens/Azaléias.png" alt="Bonsai de Azaleia">
+                <div class="card-info">
+                    <h4> Azaleia  uma unidade</h4>
+                    <span class="price" data-price="4.00">R$ 4,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor008" data-name="Crisântemo Vermelho" data-price="3.00">
+                <img src="Imagens/Cravos laranja.png" alt="Cravos laranja">
+                <div class="card-info">
+                    <h4>Cravos laranja uma unidade</h4>
+                    <span class="price" data-price="3.00">R$ 3,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor009" data-name="Dália Rosa" data-price="3.00">
+                <img src="Imagens/Violeta.png" alt="Violeta">
+                <div class="card-info">
+                    <h4>Violeta uma unidade</h4>
+                    <span class="price" data-price="3.00">R$ 3,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor010" data-name="Hortênsia Azul" data-price="4.00">
+                <img src="Imagens/Begônias amarela.png" alt="Begônias amarela">
+                <div class="card-info">
+                    <h4>Begônias amarela uma unidade</h4>
+                    <span class="price" data-price="4.00">R$ 4,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor011" data-name="Flor-de-Maio Cactos" data-price="4.00">
+                <img src="Imagens/Begônias rosa.png" alt="Begônias rosa">
+                <div class="card-info">
+                    <h4>Begônias rosa uma unidade</h4>
+                    <span class="price" data-price="4.00">R$ 4,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="flor012" data-name="Astromélia Roxa" data-price="8.00">
+                <img src="Imagens/Bromélia roxa.png" alt="Bromélia roxa">
+                <div class="card-info">
+                    <h4>Bromélia roxa uma unidade</h4>
+                    <span class="price" data-price="8.00">R$ 8,00</span>
+                    <button class="button-aproveite" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            
+            
+        </section>
+    </main>
+
+    <footer>
+        </footer>
+    
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-details">
+                <h2 id="modalTitle"></h2>
+                <span class="modal-price" id="modalPrice"></span>
+                <h3>Descrição</h3>
+                <p id="modalDescription"></p>
+                <h3>Informações e Cuidados</h3>
+                <p id="modalCare"></p>
+                <a href="#" class="button-aproveite" style="margin-top: 20px; text-align: center;">Comprar Agora</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Scripts/cart.js"></script>
+
+    <script>
+        // Função do Modal (Ajustada)
+        function openModal(title, description, price, imageFilename, careInfo) {
+            const modal = document.getElementById('productModal');
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalPrice').innerText = price;
+            // CORREÇÃO AQUI: Construindo o caminho da imagem corretamente para o modal
+            document.getElementById('modalImage').src = "../Imagens/" + imageFilename; 
+            document.getElementById('modalImage').alt = title;
+            document.getElementById('modalCare').innerText = careInfo;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // --- FUNÇÃO ADICIONAL PARA CARRINHO (Chamará o cart.js) ---
+        function addToCart(buttonElement) {
+            const card = buttonElement.closest('.product-card');
+            const id = card.getAttribute('data-id');
+            const name = card.getAttribute('data-name');
+            const price = parseFloat(card.getAttribute('data-price'));
+            
+            // Verifica se a função addItemToCart existe no cart.js antes de chamar
+            if (typeof addItemToCart === 'function') {
+                addItemToCart({ id, name, price, quantity: 1 });
+                alert(`${name} adicionado ao carrinho!`);
+            } else {
+                console.error("A função addItemToCart não foi carregada. Verifique o arquivo cart.js.");
+            }
+        }
+    </script>
+</body>
+</html>

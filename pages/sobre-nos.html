@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Florence</title>
+    <link rel="stylesheet" href="../Styles/style.css"> 
+    <link rel="icon" type="image/x-icon" href="Imagens/LOGO .png"> 
+    <style>
+       
+        .breadcrumb {
+            padding: 10px 0;
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--color-dark-green);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        
+        .our-history {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .our-history h2 {
+            color: var(--color-primary-burgundy); 
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .our-history p {
+            max-width: 800px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        
+        .testimonials {
+            padding: 60px 0;
+            background-color: #f7f7f7; 
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonials h2 .star-icon {
+            font-size: 2rem;
+            color: gold;
+            margin-right: 10px;
+        }
+
+        .testimonial-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            width: 30%; 
+            min-width: 280px;
+            text-align: left;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+            min-height: 80px; 
+        }
+        
+        .testimonial-card .author {
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            color: var(--color-primary-burgundy); 
+        }
+        
+        
+        .history-image-container {
+            max-width: 600px;
+            margin: 40px auto 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .history-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar top-bar-dark">
+            <div class="container top-container">
+                <div class="logo logo-large">
+                    <img src="Imagens/LOGO .png" alt="Logotipo Floresol">
+                    <h1>FLORENCE</h1>
+                </div>
+
+                <div class="contact-info contact-info-light">
+                    <p>(11) 98999-3538</p>
+                    <p>Rua das Turmalinas, 81 - Diadema</p>
+                    <a href="#">Ajuda/FAQ</a>
+                </div>
+
+                <div class="search-bar search-bar-light">
+                    <input type="text" placeholder="O que você está buscando?">
+                </div>
+                
+                <div class="user-actions user-actions-light">
+                    <a href="login.html" class="login-link">👤 Login</a> 
+                    <a href="#" class="cart-link">🛒 Carrinho (0)</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav main-nav-dark">
+            <div class="container nav-container">
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="flores.html">Flores</a></li>
+                    <li><a href="folhagens.html">Folhagens</a></li>
+                
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="Imagens/Bromélia vermelha.png">Home</a> > Sobre Nós
+        </div>
+
+        <section class="our-history">
+            <h2>Nossa História:</h2>
+            <p>
+                Somos cinco sócias unidas pelo amor às flores, à natureza e à arte de transformar momentos em beleza. Nossa floricultura nasceu do sonho compartilhado de criar um espaço onde cada detalhe fosse pensado com carinho e autenticidade, e é exatamente assim que trabalhamos até hoje. Aqui, somos nós mesmas que fazemos tudo: escolhemos as flores, atendemos nossos clientes, cuidamos do espaço e garantimos que cada pedido saia com o toque especial que só mãos apaixonadas podem dar. Cada uma de nós traz um talento único, e juntas formamos uma equipe comprometida, criativa e dedicada. Seja bem-vindo(a) ao nosso jardim, feito por nós, pensado para você. 🌷🌸🌿
+            </p>
+            
+            <div class="history-image-container">
+                <img src="Imagens/LOGO .png" alt="Logotipo Floresol">
+            </div>
+        </section>
+        
+    </main>
+    
+    <section class="testimonials">
+        <div class="container">
+            <h2><span class="star-icon">⭐️</span> O que nossos clientes dizem</h2>
+            
+            <div class="testimonial-grid">
+                
+                <div class="testimonial-card">
+                    <p>"Serviço impecável e flores que duraram muito tempo! A entrega foi super rápida, perfeita para o presente de última hora."</p>
+                    <span class="author">- Mariana P.</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"A orquídea chegou em perfeito estado e é ainda mais bonita pessoalmente. A Floresol é minha nova floricultura favorita."</p>
+                    <span class="author">- João V.</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Simplesmente maravilhosas! O site é fácil de usar e o buquê de rosas superou minhas expectativas. Recomendo a todos."</p>
+                    <span class="author">- Camila R.</span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-column atendimento">
+                <h4>Atendimento</h4>
+                <p><a href="#">FAQ / Ajuda</a></p>
+            </div>
+            <div class="footer-column sobre-nos">
+                <h4>A Floresol</h4>
+                <p><a href="sobre-nos.html">Sobre Nós</a></p>
+            </div>
+            <div class="footer-column contato">
+                <h4>Contato</h4>
+                <p class="phone-number">📞 (11) 98999-3538</p> 
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Receba Novidades</h4>
+                <form>
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Cadastrar</button> 
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright-bar">
+             <p>© 2025 Florence / Floresol. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
