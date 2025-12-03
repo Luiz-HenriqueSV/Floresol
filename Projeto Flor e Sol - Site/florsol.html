@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores & Afins | Sua Floricultura Online Profissional</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="container">
+            <span>(11) 98765-4321 | Atendimento das 8h às 18h</span>
+            <span class="frete-aviso">🚚 FRETE GRÁTIS em compras acima de R$ 199,00</span>
+        </div>
+    </header>
+
+    <div class="main-header">
+        <div class="container flex-header">
+            <div class="logo">
+                <a href="index.php">
+                    <h1><i class="fas fa-seedling"></i> FLORES & AFINS</h1>
+                </a>
+            </div>
+
+            <div class="search-bar">
+                <form action="busca.php" method="GET">
+                    <input type="text" name="q" placeholder="O que você está procurando? (Rosas, Cestas, Orquídeas...)">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <nav class="user-nav">
+                <a href="#" class="btn-cep"><i class="fas fa-map-marker-alt"></i> CEP de Entrega</a>
+                <a href="minha-conta.php"><i class="fas fa-user"></i> Minha Conta</a>
+                <a href="carrinho.php" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <nav class="main-menu">
+        <div class="container">
+            <ul>
+                <li><a href="categoria.php?cat=lancamentos">Lançamentos</a></li>
+                <li><a href="categoria.php?cat=buques">Buquês</a></li>
+                <li><a href="categoria.php?cat=arranjos">Arranjos</a></li>
+                <li><a href="categoria.php?cat=cestas">Cestas & Presentes</a></li>
+                <li class="dropdown">
+                    <a href="#">Ocasiões <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="ocasiao.php?id=aniversario">Aniversário</a></li>
+                        <li><a href="ocasiao.php?id=romance">Romance</a></li>
+                        <li><a href="ocasiao.php?id=parabens">Parabéns</a></li>
+                    </ul>
+                </li>
+                <li><a href="categoria.php?cat=orquideas">Orquídeas</a></li>
+                <li><a href="categoria.php?cat=datas-especiais" class="menu-destaque">Datas Especiais</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="carousel-container">
+        <div class="carousel-slide-track" id="carouselTrack">
+            
+            <div class="carousel-slide slide-fundo-1">
+                <div class="slide-content container">
+                    <div class="slide-text">
+                        <h2>Festival de Orquídeas <span class="badge">-15% OFF</span></h2>
+                        <p>Presenteie com elegância! Válido para todos os tipos de Orquídeas.</p>
+                        <a href="#" class="btn-acao">Ver Orquídeas</a>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="carousel-slide slide-fundo-2">
+                <div class="slide-content container">
+                    <div class="slide-text light-text">
+                        <h2>Buquê de Rosas Clássicas</h2>
+                        <p>Símbolo de amor eterno. Entrega expressa em 3 horas!</p>
+                        <a href="#" class="btn-acao">Comprar Rosas</a>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="carousel-slide slide-fundo-3">
+                <div class="slide-content container">
+                    <div class="slide-text">
+                        <h2>Cestas de Café da Manhã</h2>
+                        <p>Surpreenda logo cedo! Agende sua entrega para o período da manhã.</p>
+                        <a href="#" class="btn-acao">Ver Cestas</a>
+                    </div>
+                    </div>
+            </div>
+            
+        </div>
+
+        <button class="carousel-btn prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="carousel-indicators" id="carouselIndicators">
+        </div>
+    </section>
+
+    <section class="category-highlights">
+        <div class="container">
+            <h3>Navegue por Destaques</h3>
+            <div class="highlights-grid">
+                <a href="categoria.php?cat=rosas" class="highlight-item">
+                    <div class="circle-image">
+
+[Image of Red Roses]
+</div>
+                    <span>Rosas</span>
+                </a>
+                <a href="categoria.php?cat=girassois" class="highlight-item">
+                    <div class="circle-image">
+
+[Image of Sunflowers]
+</div>
+                    <span>Girassóis</span>
+                </a>
+                <a href="categoria.php?cat=orquideas" class="highlight-item">
+                    <div class="circle-image"></div>
+                    <span>Orquídeas</span>
+                </a>
+                <a href="categoria.php?cat=suculentas" class="highlight-item">
+                    <div class="circle-image">
+
+[Image of Succulents]
+</div>
+                    <span>Suculentas</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <div class="container">
+            <h2>Produtos Mais Vendidos</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="img/buque-exemplo.jpg" alt="Buquê de Rosas">
+                    <h4>Buquê Eterno Amor</h4>
+                    <p class="price">R$ 149,90</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+                </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container flex-footer">
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Perguntas Frequentes</a></li>
+                    <li><a href="#">Rastrear Pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Informações</h4>
+                <ul>
+                    <li><a href="#">Política de Entrega</a></li>
+                    <li><a href="#">Política de Troca</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copy-bar">
+            <p>&copy; 2025 Flores & Afins. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        const intervalTime = 5000; // 5 segundos
+
+        // Cria as Bolinhas Indicadoras
+        function createIndicators() {
+            slides.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (index === 0) {
+                    indicator.classList.add('active');
+                }
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetAutoPlay();
+                });
+                indicatorsContainer.appendChild(indicator);
+            });
+        }
+
+        // Move para o Slide Desejado
+        function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            const offset = -currentIndex * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            updateIndicators();
+        }
+
+        // Atualiza as Bolinhas (destaque)
+        function updateIndicators() {
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.remove('active');
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                }
+            });
+        }
+
+        // Move o Slide (função dos botões)
+        function moveSlide(direction) {
+            goToSlide(currentIndex + direction);
+            resetAutoPlay();
+        }
+        
+        // Autoplay (Troca automática)
+        let autoPlayInterval;
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, intervalTime);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            createIndicators();
+            startAutoPlay();
+        });
+        
+        // Atribui a função ao escopo global para o HTML
+        window.moveSlide = moveSlide;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+/* ==================================== */
+/* 0. VARIÁVEIS, RESET E GLOBAIS        */
+/* ==================================== */
+
+:root {
+    /* Paleta de Cores Profissional de Floricultura */
+    --color-primary: #556B2F;     /* Verde Oliva Escuro (Cabeçalho/Rodapé) */
+    --color-secondary: #D9D2A3;   /* Cáqui Suave (Fundo Menu/Destaques) */
+    --color-accent: #A0314A;      /* Vinho/Vermelho Escuro (Ações/Preços) */
+    --color-hover: #C8204D;       /* Rosa Escuro (Efeito Hover) */
+    --color-text-dark: #333;      /* Texto principal */
+    --color-text-light: #fff;     /* Texto em fundos escuros */
+    --color-background: #fcfcfc;  /* Fundo da Página (Quase Branco) */
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --container-width: 1200px;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+.container {
+    width: 95%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* Utilities */
+.flex-header, .flex-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ==================================== */
+/* 1. CABEÇALHO (HEADER)                */
+/* ==================================== */
+
+/* Top Bar */
+.top-header {
+    background-color: #eee;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.frete-aviso {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* Main Header (Logo, Busca, Ícones) */
+.main-header {
+    background-color: var(--color-primary);
+    padding: 20px 0;
+}
+
+.logo a {
+    color: var(--color-text-light);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Search Bar */
+.search-bar {
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.search-bar form {
+    display: flex;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--color-text-light);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: var(--color-hover);
+}
+
+/* User Navigation */
+.user-nav {
+    display: flex;
+    gap: 25px;
+}
+
+.user-nav a {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.3;
+}
+
+.user-nav a i {
+    font-size: 1.4rem;
+    margin-bottom: 3px;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--color-hover);
+    color: var(--color-text-light);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+/* Main Menu (Categorias) */
+.main-menu {
+    background-color: var(--color-secondary);
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-menu ul li a {
+    padding: 12px 15px;
+    display: block;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.main-menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--color-accent);
+}
+
+.menu-destaque {
+    color: var(--color-accent) !important;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-text-light);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    list-style: none;
+    padding: 5px 0;
+}
+
+.dropdown-content a {
+    color: var(--color-text-dark);
+    padding: 10px 16px;
+    display: block;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--color-primary);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ==================================== */
+/* 2. CARROSSEL (SLIDESHOW) - ATUALIZADO */
+/* ==================================== */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 420px;
+    margin-bottom: 40px;
+}
+
+.carousel-slide-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    
+    /* Configurações de Fundo Comuns a todos os slides */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+/* 2.1. DEFINIÇÃO DAS IMAGENS DE FUNDO (MUDAR OS CAMINHOS DAS IMAGENS!) */
+
+.slide-fundo-1 {
+    /* **Orquídeas** - Substitua 'img/banner-orquideas.jpg' pelo caminho real da sua imagem */
+    background-image: url('../img/banner-orquideas.jpg'); 
+}
+
+.slide-fundo-2 {
+    /* **Rosas** - Substitua 'img/banner-rosas.jpg' pelo caminho real da sua imagem */
+    background-image: url('../img/banner-rosas.jpg'); 
+}
+
+.slide-fundo-3 {
+    /* **Cestas** - Substitua 'img/banner-cestas.jpg' pelo caminho real da sua imagem */
+    background-image: url('../img/banner-cestas.jpg'); 
+}
+
+/* Oculta o div de imagem lateral, pois agora usamos a imagem de fundo */
+.slide-image {
+    display: none;
+}
+
+/* 2.2. CONTEÚDO DO SLIDE (Texto) */
+
+.slide-content {
+    /* Garante que o texto fique centralizado horizontalmente no slide (dentro do container) */
+    width: 100%;
+    padding: 40px 20px;
+    justify-content: flex-start; 
+}
+
+.slide-text {
+    max-width: 50%;
+    padding-right: 30px;
+}
+
+.slide-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+    /* Sombra para garantir legibilidade sobre a imagem */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+.slide-text p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: var(--color-text-light);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+}
+
+/* Botão de Ação (Geral) */
+.btn-acao, .btn-comprar {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 14px 30px;
+    border-radius: 50px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-acao:hover, .btn-comprar:hover {
+    background-color: var(--color-hover);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    font-size: 1rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+/* Controles de Navegação (Setas) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(85, 107, 47, 0.7); 
+    color: var(--color-text-light);
+    border: none;
+    padding: 15px 12px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s, background 0.3s;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+    background: var(--color-primary);
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.next {
+    right: 0;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+/* Indicadores (Bolinhas) */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.indicator.active {
+    background-color: var(--color-accent);
+    transform: scale(1.2);
+}
+
+
+/* ==================================== */
+/* 3. CONTEÚDO E PRODUTOS               */
+/* ==================================== */
+
+.content-section {
+    padding: 40px 0;
+}
+
+.content-section h2, .category-highlights h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+/* Destaques de Categorias (Círculos) */
+.category-highlights {
+    padding: 40px 0;
+    background-color: var(--color-text-light);
+    border-top: 1px solid #f0f0f0;
+}
+
+.highlights-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 140px;
+    cursor: pointer;
+}
+
+.circle-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ccc; 
+    border: 4px solid var(--color-secondary);
+    margin-bottom: 10px;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem; 
+}
+
+.highlight-item:hover .circle-image {
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+}
+
+.highlight-item span {
+    font-weight: 600;
+    color: var(--color-text-dark);
+    text-transform: capitalize;
+}
+
+/* Grid de Produtos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--color-text-light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px var(--color-shadow);
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-card h4 {
+    color: var(--color-primary);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.product-card .price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+}
+
+
+/* ==================================== */
+/* 4. RODAPÉ (FOOTER)                   */
+/* ==================================== */
+
+.main-footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 40px 0 20px;
+}
+
+.flex-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+
+.footer-col {
+    min-width: 180px;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-secondary);
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-secondary);
+}
+
+.copy-bar {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+}
+
+/* ==================================== */
+/* 5. MEDIA QUERIES (RESPONSIVIDADE)    */
+/* ==================================== */
+
+/* Tablet e Telas menores que 1024px */
+@media (max-width: 1024px) {
+    .flex-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo { order: 1; width: 100%; text-align: center; margin-bottom: 15px;}
+    .user-nav { order: 2; margin-bottom: 15px; gap: 15px;}
+    .search-bar { order: 3; max-width: 100%;}
+
+    .main-menu ul {
+        justify-content: space-between;
+        gap: 5px;
+    }
+    .main-menu ul li a {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .carousel-container {
+        height: 350px;
+    }
+}
+
+/* Celular e Telas menores que 768px */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 280px;
+    }
+    
+    .slide-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .slide-text {
+        max-width: 100%; 
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .slide-image {
+        display: none; 
+    }
+    
+    .slide-text h2 {
+        font-size: 2rem;
+    }
+    
+    .btn-acao {
+        padding: 10px 20px;
+    }
+
+    .main-menu {
+        overflow-x: auto; 
+    }
+
+    .main-menu ul {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding: 0 10px;
+    }
+
+    .main-menu ul li {
+        flex-shrink: 0;
+    }
+
+    .flex-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Celular menor que 480px */
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    .user-nav {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .user-nav a {
+        font-size: 0.8rem;
+    }
+}
